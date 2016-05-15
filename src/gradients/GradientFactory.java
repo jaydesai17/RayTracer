@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import javax.imageio.ImageIO;
 
 import utilities.Color;
+import utilities.Transformation;
 import utilities.Vector;
 
 public class GradientFactory implements Serializable{
@@ -103,6 +104,10 @@ public class GradientFactory implements Serializable{
 	
 	public Gradient makeYZ(final double scaleX, final double scaleY){
 		return new YZGradient(scaleX, scaleY);	
+	}
+	
+	public Gradient makeTransformationGradient(final Transformation t) {
+		return new TransformationGradient(t);
 	}
 	
 	public Gradient blendGradients(Map<Gradient,Double> components){
@@ -252,6 +257,51 @@ public class GradientFactory implements Serializable{
 			}
 		}
 		
+	}
+	
+	private class TransformationGradient implements Gradient {
+
+		private final Transformation t;
+		
+		public TransformationGradient(Transformation t){
+			this.t = t;
+		}
+		
+		@Override
+		public Color colorAt(Vector point) {
+			
+			point = t.multiply(point);
+			double x = point.getX();
+			double y = point.getY();
+
+			int square =(int) (Math.floor(x) + Math.floor(y));
+			if(square % 2 == 0){
+				x -= Math.floor(x);
+				y -= Math.floor(y);
+				int xInt = (int)(x*colors.length);
+				int yInt = (int)(y*colors[0].length);
+				if (xInt >= colors.length){
+					xInt = colors.length - 1;
+				} 
+				if(yInt >= colors[xInt].length){
+					yInt = colors[xInt].length - 1;
+				}
+				return colors[xInt][yInt];
+			} else{
+				x -= Math.floor(x);
+				y -= Math.floor(y);
+				int xInt = (int)(x*colors2.length);
+				int yInt = (int)(y*colors2[0].length);
+				if (xInt >= colors2.length){
+					xInt = colors2.length - 1;
+				} 
+				if(yInt >= colors2[xInt].length){
+					yInt = colors2[xInt].length - 1;
+				}
+				return colors2[xInt][yInt];
+			}
+		}
+
 	}
 	
 	private class BlendedGradient implements Gradient{
