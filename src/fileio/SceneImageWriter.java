@@ -27,7 +27,7 @@ public class SceneImageWriter {
 	private static final int maxThreads = 3;   
 	
 	public SceneImageWriter(Scene scene, String imageName){
-		this.scene = scene;
+		this.scene = scene; 
 		this.imageName = imageName;
 		this.rendered = false;
 	}
