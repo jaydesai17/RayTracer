@@ -1,4 +1,4 @@
-# Ignore everything not a java file
+# Ignore everything not a java file, and some java files.
 /bin
 /src/client
 .project
