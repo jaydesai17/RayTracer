@@ -1,0 +1,9 @@
+# Ignore everything not a java file
+/bin
+/src/client
+.project
+.classpath
+.settings/
+*.gif
+*.png
+*.jpg
