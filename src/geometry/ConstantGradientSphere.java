@@ -6,6 +6,10 @@ import utilities.Vector;
 
 public class ConstantGradientSphere extends Sphere {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5527867507415833132L;
 	private Gradient grad;
 	
 	public ConstantGradientSphere(Vector center, double radius, Gradient grad) {

@@ -5,6 +5,10 @@ import utilities.Vector;
 
 public abstract class Sphere implements GeometricObject{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5476460830089667520L;
 	private Vector center;
 	private double radius;
 	

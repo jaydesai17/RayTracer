@@ -5,6 +5,10 @@ import utilities.Vector;
 
 public abstract class Plane implements GeometricObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5748756262982643818L;
 	private Vector normal;
 	private double distance;
 	

@@ -1,4 +1,4 @@
-package fileio;
+ package fileio;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,8 +24,7 @@ public class SceneImageWriter {
 	private Scene scene;
 	private String imageName;
 	private boolean rendered;
-	
-	private static final int maxThreads = 3;
+	private static final int maxThreads = 3;   
 	
 	public SceneImageWriter(Scene scene, String imageName){
 		this.scene = scene;

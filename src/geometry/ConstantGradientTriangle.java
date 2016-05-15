@@ -6,6 +6,10 @@ import utilities.Vector;
 
 public class ConstantGradientTriangle extends Triangle {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6151214536817318567L;
 	private Gradient grad;
 	
 	public ConstantGradientTriangle(Vector vertice1, Vector vertice2, Vector vertice3, Gradient grad) {

@@ -3,6 +3,7 @@ package gradients;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,34 +13,49 @@ import javax.imageio.ImageIO;
 import utilities.Color;
 import utilities.Vector;
 
-public class GradientFactory {
+public class GradientFactory implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 567280646121742181L;
 	private Color[][] colors;
 	private Color[][] colors2;
+	private Color color1;
+	private Color color2;
+	private String image1;
+	private String image2;
+	private double special1;
+	private double special2;
 	
-	private GradientFactory(){
-		
+	private GradientFactory(String image1, double special1, String image2, double special2, Color color1, Color color2){
+		this.color1 = color1;
+		this.color2 = color2;
+		this.image1 = image1;
+		this.image2 = image2;
+		this.special1 = special1;
+		this.special2 = special2;
 	}
-
+	
 	public static GradientFactory createInstance(double special1, double special2, String image1, String image2) throws IOException{
-		GradientFactory fact = new GradientFactory();
-		fact.initColors(image1, image2, null, null, special1, special2);
+		GradientFactory fact = new GradientFactory(image1, special1, image2, special2, null, null);
+		fact.initColors();
 		return fact;
 	}
 	
 	public static GradientFactory createInstance(double special1, String image, Color color) throws IOException{
-		GradientFactory fact = new GradientFactory();
-		fact.initColors(image, null, null, color, special1, 0);
+		GradientFactory fact = new GradientFactory(image, special1, null, 0, null, color);
+		fact.initColors();
 		return fact;
 	}
-	
+		
 	public static GradientFactory createInstance(Color color1, Color color2) throws IOException{
-		GradientFactory fact = new GradientFactory();
-		fact.initColors(null, null, color1, color2, 0, 0);
+		GradientFactory fact = new GradientFactory(null, 0, null, 0, color1, color2);
+		fact.initColors();
 		return fact;
 	}
 	
-	private void initColors(String image1, String image2, Color color1, Color color2, double special1, double special2) throws IOException{
+	private void initColors() throws IOException{
 		
 		final BufferedImage bi;
 		final BufferedImage bi2;

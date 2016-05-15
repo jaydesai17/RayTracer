@@ -5,6 +5,10 @@ import utilities.Vector;
 
 public abstract class Quadratic implements GeometricObject{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8495249200508859930L;
 	private double a,b,c,d,e,f,g,h,i,j;
 		
 	/**

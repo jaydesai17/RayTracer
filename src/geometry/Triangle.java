@@ -5,6 +5,10 @@ import utilities.Vector;
 
 public abstract class Triangle implements GeometricObject {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4856555238544390534L;
 	private Vector vertice1, vertice2, vertice3, edge1, edge2, normal;
 	
 	/**
