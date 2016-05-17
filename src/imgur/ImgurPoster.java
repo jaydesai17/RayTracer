@@ -17,10 +17,6 @@ public class ImgurPoster {
 	private static final String IMGUR_VIEW_URL = "http://imgur.com/";
 	private static final String NOT_JSON = "Imgur did not respond with JSON.";
 	
-	public static void main(String[] args) {
-		System.out.println(postToImgur("dickbutt.jpg"));
-	}
-	
 	public static String postToImgur(String fileName){
 		File image = new File(fileName);
 		HttpURLConnection conn = null;
