@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-import org.json.*;
+//import org.json.*;
 
 public class ImgurPoster {
 
@@ -87,22 +87,26 @@ public class ImgurPoster {
 	}
 	
 	private static String formatImgurResponse(String imgurResponse){
+		/*
 		try{
 			JSONObject obj = new JSONObject(imgurResponse);
 			String id = obj.getJSONObject("data").getString("id");
 			return IMGUR_VIEW_URL + id;
 		} catch(JSONException e){
 			return NOT_JSON;
-		}
+		} */
+		return null;
 	}
 	
 	private static String formatErrorResponse(String errorResponse){
+		/*
 		try{
 			JSONObject obj = new JSONObject(errorResponse);
 			String error = obj.getJSONObject("data").getString("error");
 			return error;
 		} catch(JSONException e){
 			return NOT_JSON;
-		}
+		} */
+		return null;
 	}
 }

@@ -2,6 +2,7 @@ package scene;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.function.Function;
 
 import utilities.Camera;
 import utilities.Color;
@@ -26,6 +27,7 @@ public class Scene implements Serializable{
 	private Camera cam;
 	private List<Light> lights;
 	private List<GeometricObject> sceneObjects;
+	private Function<Vector, Double> indexOfRefraction;
 	
 	/**
 	 * Creates a scene.
@@ -253,6 +255,21 @@ public class Scene implements Serializable{
 				}
 			}
 			
+			if (color.getIndex() > 0) {
+				Ray transRay = new Ray(interPos, interDir);
+				for(int i = 0; i<sceneObjects.size(); i++){
+					intersections[i] = sceneObjects.get(i).hit(transRay);
+				}
+				minIndex = minIndex(intersections);
+				if(minIndex != -1){
+					if (intersections[minIndex] > error){
+						interDir = interDir.normalize();
+						Vector transInterPos = interPos.add(interDir.scalarMultiply(intersections[minIndex]));
+						Color reflColor = getColorAtReflect(transInterPos,interDir,minIndex, maxReflections-1);
+						finalColor = finalColor.add(reflColor.colorScalar(color.getSpecial()));
+					}
+				}
+			}
 		}
 	
 		for(int i = 0; i<lights.size(); i++){
@@ -339,4 +356,16 @@ public class Scene implements Serializable{
 		return minIn;
 	}
 	
+	private class Tuple<X, Y> { 
+		  public final X x; 
+		  public final Y y; 
+		  public Tuple(X x, Y y) { 
+		    this.x = x; 
+		    this.y = y; 
+		  } 
+		} 
+	
+	private static Tuple<Double, Integer> getHitWithRefract(Ray ray) {
+		return null;
+	}
 }

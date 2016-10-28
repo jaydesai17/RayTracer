@@ -15,6 +15,7 @@ public class Color implements Serializable {
 	private static final long serialVersionUID = -8727435193324470403L;
 	private double r,g,b;
 	private double special;
+	private double indexOfRefraction = -1;
 	
 	/**
 	 * Creates a black color with no special or gradient.
@@ -49,6 +50,14 @@ public class Color implements Serializable {
 		this.special = special;
 	}
 	
+	public Color(double r, double g, double b, double special, double index){
+		this.r = r;
+		this.g = g;
+		this.b = b;
+		this.special = special;
+		indexOfRefraction = index;
+	}
+	
 	/**
 	 * Copy constructor.
 	 * @param other Color to be copied.
@@ -58,6 +67,11 @@ public class Color implements Serializable {
 		g = other.g;
 		b = other.b;
 		special = other.special;
+		indexOfRefraction = other.indexOfRefraction;
+	}
+	
+	public double getIndex() {
+		return indexOfRefraction;
 	}
 	
 	public Color add(Color other){
