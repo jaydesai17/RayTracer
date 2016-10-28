@@ -51,7 +51,7 @@ public class SceneImageWriter {
 		}
 		
 		long start = System.nanoTime();
-		
+		System.out.println("Beginning to render image.");
 		File image = new File(imageName);
 		BufferedImage buffer = sceneToBufferedImage(maxThreads);
 		ImageIO.write(buffer,fileExtension,image);
@@ -73,7 +73,7 @@ public class SceneImageWriter {
 			System.out.println("Not a valid file extension.");
 			return;
 		}
-		
+		System.out.println("Beginning to render image.");		
 		long start = System.nanoTime();
 		
 		File image = new File(imageName);
@@ -101,7 +101,7 @@ public class SceneImageWriter {
 			System.out.println("Not a valid file extension.");
 			return;
 		}
-		
+		System.out.println("Beginning to render image.");
 		long start = System.nanoTime();
 		
 		File image = new File(imageName);
@@ -124,7 +124,7 @@ public class SceneImageWriter {
 			System.out.println("Not a valid file extension.");
 			return;
 		}
-		
+		System.out.println("Beginning to render image.");
 		long start = System.nanoTime();
 		
 		File image = new File(imageName);

@@ -137,7 +137,7 @@ public class SceneGifWriter {
 	public void writeGif(GifDefinition definition, int numFrames, int threads) throws IOException, InterruptedException  {
 		
 		long start = System.nanoTime();
-		
+		System.out.println("Beginning to render gif.");		
 		for(int i = 0; i<numFrames; i++){
 			Scene scene = definition.sceneAt(i);
 			BufferedImage buffer = new SceneImageWriter(scene,null).sceneToBufferedImage(threads);
@@ -157,7 +157,7 @@ public class SceneGifWriter {
 	
 	public void writeGifSampled(GifDefinition definition, int numFrames, int samples, Random random) throws IOException {
 		long start = System.nanoTime();
-		
+		System.out.println("Beginning to render gif.");				
 		for(int i = 0; i<numFrames; i++){
 			Scene scene = definition.sceneAt(i);
 			BufferedImage buffer;
@@ -179,10 +179,9 @@ public class SceneGifWriter {
 		System.out.println("Image saved as " + gifName);
 	}
 	
-	public void writeGifSingleThreaded(GifDefinition definition, int numFrames) throws IOException, InterruptedException  {
-		
+	public void writeGifSingleThreaded(GifDefinition definition, int numFrames) throws IOException, InterruptedException  {		
 		long start = System.nanoTime();
-		
+		System.out.println("Beginning to render gif.");			
 		for(int i = 0; i<numFrames; i++){
 			Scene scene = definition.sceneAt(i);
 			BufferedImage buffer = new SceneImageWriter(scene,null).sceneToBufferSingleThreaded();
