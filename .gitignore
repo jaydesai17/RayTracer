@@ -1,6 +1,6 @@
 # Ignore everything not a java file, and some java files.
 /bin
-/src/client
+/src/client/*.java
 .project
 .classpath
 .settings/
