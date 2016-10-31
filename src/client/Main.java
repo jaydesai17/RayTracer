@@ -27,7 +27,7 @@ public class Main {
 
 	private void run() throws IOException {
 		GifDefinition bounce = new BounceGif();
-		SceneGifWriter writer = new SceneGifWriter("/Users/jay/Documents/workspace/RayTracer/abcd.gif", 1, true);
+		SceneGifWriter writer = new SceneGifWriter("abcd.gif", 1, true);
 		writer.writeGifSampled(bounce, 100, 1, null);
 	}
 	
