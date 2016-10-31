@@ -8,3 +8,7 @@
 *.png
 *.jpg
 *.class
+
+!src/client/Main.java
+
+
