@@ -19,6 +19,12 @@ import utilities.Color;
 import utilities.Light;
 import utilities.Vector;
 
+/*
+
+Just run it and it will render a huge gif of a ball bouncing.
+You can edit it to do what you want. 
+
+*/
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
@@ -28,7 +34,7 @@ public class Main {
 	private void run() throws IOException {
 		GifDefinition bounce = new BounceGif();
 		SceneGifWriter writer = new SceneGifWriter("abcd.gif", 1, true);
-		writer.writeGifSampled(bounce, 1, 1, null);
+		writer.writeGifSampled(bounce, 100, 1, null);
 	}
 	
 	private class BounceGif implements GifDefinition {
@@ -38,7 +44,7 @@ public class Main {
 		private static final double GRAVITY = .055;
 		
 		private BounceGif() {
-			height = 4;
+			height = 5.;
 			vel = .16;
 		}
 
