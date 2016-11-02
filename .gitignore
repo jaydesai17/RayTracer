@@ -10,5 +10,3 @@
 *.class
 
 !src/client/Main.java
-!images/wut.png
-
