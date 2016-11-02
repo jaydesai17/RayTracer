@@ -52,7 +52,7 @@ public class SceneImageWriter {
 		
 		long start = System.nanoTime();
 		System.out.println("Beginning to render image.");
-		File image = new File(imageName);
+		File image = new File("temp/" + imageName);
 		BufferedImage buffer = sceneToBufferedImage(maxThreads);
 		ImageIO.write(buffer,fileExtension,image);
 		long end = System.nanoTime();
@@ -76,7 +76,7 @@ public class SceneImageWriter {
 		System.out.println("Beginning to render image.");		
 		long start = System.nanoTime();
 		
-		File image = new File(imageName);
+		File image = new File("temp/" + imageName);
 		BufferedImage buffer;
 		if (random != null) {
 			buffer = sceneToBufferSampled(samples, random);
@@ -104,7 +104,7 @@ public class SceneImageWriter {
 		System.out.println("Beginning to render image.");
 		long start = System.nanoTime();
 		
-		File image = new File(imageName);
+		File image = new File("temp/" + imageName);
 		BufferedImage buffer = sceneToBufferedImage(threads);
 		ImageIO.write(buffer,fileExtension,image);
 		long end = System.nanoTime();
@@ -127,7 +127,7 @@ public class SceneImageWriter {
 		System.out.println("Beginning to render image.");
 		long start = System.nanoTime();
 		
-		File image = new File(imageName);
+		File image = new File("temp/" + imageName);
 		BufferedImage buffer = sceneToBufferSingleThreaded();
 		ImageIO.write(buffer,fileExtension,image);
 		long end = System.nanoTime();
@@ -228,7 +228,7 @@ public class SceneImageWriter {
 	
 	public String postToImgur(){
 		if(rendered){
-			return ImgurPoster.postToImgur(imageName);
+			return ImgurPoster.postToImgur("temp/" + imageName);
 		} else{
 			return null;
 		}

@@ -33,8 +33,8 @@ public class Main {
 
 	private void run() throws IOException {
 		GifDefinition bounce = new BounceGif();
-		SceneGifWriter writer = new SceneGifWriter("abcefgh.gif", 1, true);
-		writer.writeGifSampled(bounce, 100, 1, null);
+		SceneGifWriter writer = new SceneGifWriter("Example.gif", 1, true);
+		writer.writeGifSampled(bounce, 1, 1, null);
 	}
 	
 	private class BounceGif implements GifDefinition {

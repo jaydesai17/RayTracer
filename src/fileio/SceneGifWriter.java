@@ -37,7 +37,7 @@ public class SceneGifWriter {
 	public SceneGifWriter(String gifName,int timeBetweenFramesMS,boolean loopContinuously) throws IIOException, IOException {
 		
 		this.gifName = gifName;
-		this.outputStream  = new FileImageOutputStream(new File(gifName));
+		this.outputStream  = new FileImageOutputStream(new File("temp/" + gifName));
 		
 		gifWriter = getWriter(); 
 		imageWriteParam = gifWriter.getDefaultWriteParam();
@@ -200,7 +200,7 @@ public class SceneGifWriter {
   }
 	
   public String postToImgur(){
-	  return ImgurPoster.postToImgur(gifName);
+	  return ImgurPoster.postToImgur("temp/" + gifName);
   }
 	
 }
