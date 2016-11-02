@@ -8,5 +8,6 @@
 *.png
 *.jpg
 *.class
+*.txt
 
 !src/client/Main.java
