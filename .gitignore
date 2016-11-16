@@ -1,9 +1,5 @@
-# Ignore everything not a java file, Makefile, .gitignore. Ignore some java files. Oh I guess we keep text files.
-/bin
+# Ignore everything not a java file, Makefile, .gitignore. Ignore some java files. 
 /src/client/*.java
-.project
-.classpath
-.settings/
 *.gif
 *.png
 *.jpg
